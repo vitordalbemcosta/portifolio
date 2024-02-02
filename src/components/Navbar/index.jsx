@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import breakpoints from '../../breakpoints'
 
 //todo: fazer que clicar no item da nav faca autoscroll para a sessao correta
+//todo: adicionar polished pra nao ter px em font-size
 
 const Navbar = () => {
-  const navbarItems = ['Home', 'About me', 'Projects', 'Get in touch']
+  const navbarItems = ['.home()', '.aboutMe()', '.projects()', '.getInTouch()']
 
   return (
     <NavbarWrapper>
@@ -35,7 +36,7 @@ const NavbarWrapper = styled.div`
 const NavbarItem = styled.div`
   font-size: 13px;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 
   &:hover {
     color: #ffc107;
@@ -45,4 +46,3 @@ const NavbarItem = styled.div`
     font-size: 9px;
   }
 `
-//todo: adicionar polished pra nao ter px em font-size

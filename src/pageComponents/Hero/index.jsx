@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import PhotoVitor from '../../images/vitor-photo.jpg'
 import Box from '../../components/Box'
 import breakpoints from '../../breakpoints'
@@ -9,12 +9,12 @@ const Hero = () => {
     <Box>
       <HeroWrapper>
         <LeftContent>
-          <Header>Hi! I'm Vitor</Header>
-          <Text>
+          <GlowHeader>Hi! I'm Vitor</GlowHeader>
+          <GlowText>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
             facilisi. Sed at magna vel ante eleifend vestibulum. Duis sodales
             justo et urna fringilla, in lacinia ex congue.
-          </Text>
+          </GlowText>
         </LeftContent>
         <RightContent>
           <Image src={PhotoVitor} alt="Vitor's image" />
@@ -32,7 +32,8 @@ const HeroWrapper = styled.div`
   align-items: center;
   gap: 50px;
   padding: 20px;
-  height: 90vh;
+  height: 60vh;
+  margin-bottom: 20vh;
 
   @media screen and (max-width: ${breakpoints.tablet}) {
     flex-direction: column;
@@ -44,19 +45,31 @@ const LeftContent = styled.div`
   max-width: 600px;
 `
 
-const Header = styled.h1`
+const GlowHeader = styled.h1`
   font-size: 2.5em;
   margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: -0.025em;
+  color: #fff;
+  text-shadow: 0 0 6rem rgba(192, 219, 255, 0.3),
+    0 0 78rem rgba(167, 139, 250, 0.3);
 
   @media screen and (max-width: ${breakpoints.tablet}) {
     margin-bottom: 30px;
   }
 `
 
-const Text = styled.p`
+const GlowText = styled.h3`
   font-size: 1.6em;
   max-width: 500px;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 0 6rem rgba(192, 219, 255, 0.3),
+    0 0 1rem rgba(122, 139, 250, 0.3);
+  line-height: 2.25rem;
+  color: #d1d5d8;
 
   @media screen and (max-width: ${breakpoints.tablet}) {
     font-size: 1.3em;

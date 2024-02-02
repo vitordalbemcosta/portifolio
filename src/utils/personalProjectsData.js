@@ -1,5 +1,5 @@
-import SaveProgrammingImage from "../images/save-programming.jpeg";
-import KebabAdvisorImage from "../images/kebab-advisor.jpeg";
+import SaveProgrammingImage from "../images/save-programming.png";
+import KebabAdvisorImage from "../images/kebab-advisor.png";
 import IronKicksImages from "../images/iron-kicks.png";
 
 const personalProjectsData = [
