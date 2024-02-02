@@ -32,7 +32,7 @@ const HeroWrapper = styled.div`
   align-items: center;
   gap: 50px;
   padding: 20px;
-  height: 100vh;
+  height: 90vh;
 
   @media screen and (max-width: ${breakpoints.tablet}) {
     flex-direction: column;

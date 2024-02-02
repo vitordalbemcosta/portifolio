@@ -1,16 +1,19 @@
 import React from 'react'
+import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 import Hero from './Hero'
 import Projects from './Projects'
 
-const index = () => {
+const Index = () => {
   return (
     <>
       <Navbar />
-      <Hero />
-      <Projects />
+      <Layout>
+        <Hero />
+        <Projects />
+      </Layout>
     </>
   )
 }
 
-export default index
+export default Index

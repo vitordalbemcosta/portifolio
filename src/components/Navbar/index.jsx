@@ -21,20 +21,15 @@ const Navbar = () => {
 export default Navbar
 
 const NavbarWrapper = styled.div`
-  position: sticky;
   top: 0;
-  background-color: #333;
-  padding: 10px;
+  background: transparent;
+  padding: 14px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: #fff;
+  color: #ffffffd6;
   margin-bottom: 20px;
-  transition: margin 0.3s ease;
-
-  &.sticky {
-    margin-bottom: 20px;
-  }
+  transition: margin 0.1s ease;
 `
 
 const NavbarItem = styled.div`
