@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import PhotoVitor from '../../images/vitor-photo.jpg'
 import Box from '../../components/Box'
 import breakpoints from '../../breakpoints'
@@ -40,7 +40,6 @@ const HeroWrapper = styled.div`
     justify-content: start;
   }
 `
-
 const LeftContent = styled.div`
   max-width: 600px;
 `
