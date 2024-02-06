@@ -1,12 +1,12 @@
 import React from "react";
-import PageComponents from "../pageComponents/index";
+import HomePage from "../pageComponents/Home";
 import "../styles/global.css";
 
 const IndexPage = () => {
   return (
-    <main>
-      <PageComponents />
-    </main>
+    <>
+      <HomePage />
+    </>
   );
 };
 

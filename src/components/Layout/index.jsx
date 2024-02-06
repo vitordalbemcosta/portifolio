@@ -1,9 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import bgImage from '../../images/bg.jpg'
+import Footer from '../Footer'
+import Navbar from '../Navbar'
 
 const Layout = ({ children }) => {
-  return <StyledLayout>{children}</StyledLayout>
+  return (
+    <StyledLayout>
+      <Navbar />
+      {children}
+      <Footer />
+    </StyledLayout>
+  )
 }
 
 const StyledLayout = styled.div`
@@ -20,7 +28,7 @@ const StyledLayout = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(85px);
+    filter: blur(50px);
     z-index: -1;
   }
 `

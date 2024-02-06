@@ -1,20 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import breakpoints from '../../breakpoints'
 
-//todo: fazer que clicar no item da nav faca autoscroll para a sessao correta
-//todo: adicionar polished pra nao ter px em font-size
-
 const Navbar = () => {
-  const navbarItems = ['.home()', '.aboutMe()', '.projects()', '.getInTouch()']
-
   return (
     <NavbarWrapper>
-      {navbarItems.map((item, index) => (
-        <NavbarItem key={index}>
-          <h2>{item}</h2>
-        </NavbarItem>
-      ))}
+      <LeftSection>
+        <NavbarItem to="/">Home</NavbarItem>
+      </LeftSection>
+      <RightSection>
+        <NavbarItem to="/about">About</NavbarItem>
+        <NavbarItem to="/projects">Projects</NavbarItem>
+        <NavbarItem to="/contacts">Contact</NavbarItem>
+      </RightSection>
     </NavbarWrapper>
   )
 }
@@ -26,23 +25,44 @@ const NavbarWrapper = styled.div`
   background: transparent;
   padding: 14px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: #ffffffd6;
   margin-bottom: 20px;
   transition: margin 0.1s ease;
 `
 
-const NavbarItem = styled.div`
-  font-size: 13px;
+const LeftSection = styled.div`
+  display: flex;
+  padding-left: 50px;
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    padding-left: 10px;
+  }
+`
+
+const RightSection = styled.div`
+  display: flex;
+  gap: 50px;
+  padding-right: 50px;
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    gap: 20px;
+    padding-right: 15px;
+  }
+`
+
+const NavbarItem = styled(Link)`
+  font-size: 22px;
   cursor: pointer;
   transition: color 0.2s ease;
+  text-decoration: none;
+  color: inherit;
 
   &:hover {
     color: #ffc107;
   }
 
   @media screen and (max-width: ${breakpoints.tablet}) {
-    font-size: 9px;
+    font-size: 18px;
   }
 `
