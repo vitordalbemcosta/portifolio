@@ -2,11 +2,7 @@ import React from "react";
 import Projects from "../pageComponents/Projects";
 
 const ProjectsPage = () => {
-  return (
-    <>
-      <Projects />
-    </>
-  );
+  return <Projects />;
 };
 
 export default ProjectsPage;

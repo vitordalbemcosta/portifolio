@@ -16,7 +16,6 @@ const About = () => {
           </GlowText>
           <GlowHeaderTechnologies>📚 Education:</GlowHeaderTechnologies>
           <Technologies>
-            {' '}
             Full-Stack Web Development Bootcamp @ Ironhack Lisbon
           </Technologies>
           <Technologies>
@@ -32,7 +31,7 @@ const About = () => {
           </Technologies>
         </LeftContent>
         <RightContent>
-          <Image src={PhotoVitor} alt="Vitor's image" />
+          <Image src={PhotoVitor} alt="Vitor's photo" loading="lazy" />
         </RightContent>
       </AboutWrapper>
     </Box>

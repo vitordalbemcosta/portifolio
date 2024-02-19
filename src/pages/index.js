@@ -3,11 +3,7 @@ import HomePage from "../pageComponents/Home";
 import "../styles/global.css";
 
 const IndexPage = () => {
-  return (
-    <>
-      <HomePage />
-    </>
-  );
+  return <HomePage />;
 };
 
 export default IndexPage;

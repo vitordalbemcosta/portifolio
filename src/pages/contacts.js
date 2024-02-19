@@ -2,11 +2,7 @@ import React from "react";
 import GetInTouch from "../pageComponents/GetInTouch";
 
 const ContactsPage = () => {
-  return (
-    <>
-      <GetInTouch />
-    </>
-  );
+  return <GetInTouch />;
 };
 
 export default ContactsPage;
