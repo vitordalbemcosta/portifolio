@@ -28,7 +28,7 @@ const StyledLayout = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(50px);
+    filter: blur(100px);
     z-index: -1;
   }
 `

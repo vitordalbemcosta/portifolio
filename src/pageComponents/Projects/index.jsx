@@ -22,7 +22,11 @@ const Projects = () => {
         {professionalProjectsData.map((project) => (
           <ProjectItem key={project.id}>
             <Link to={project.link} target="_blank" rel="noopener noreferrer">
-              <ProjectImage src={project.image} alt={project.title} />
+              <ProjectImage
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+              />
             </Link>
             <Link
               to={project.repository}
