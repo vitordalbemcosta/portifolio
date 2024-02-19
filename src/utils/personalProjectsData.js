@@ -9,6 +9,8 @@ const personalProjectsData = [
     image: SaveProgrammingImage,
     link: "https://vitordalbemcosta.github.io/Project_1/#game-board",
     repository: "https://github.com/vitordalbemcosta/Project_1",
+    details: "details about the project",
+    technologies: "js, react, etc",
   },
   {
     id: 2,
@@ -16,6 +18,8 @@ const personalProjectsData = [
     image: IronKicksImages,
     link: "https://ironkicks.herokuapp.com/",
     repository: "https://github.com/vitordalbemcosta/project2_ironkicks",
+    details: "details about the project",
+    technologies: "js, react, etc",
   },
   {
     id: 3,
@@ -24,6 +28,8 @@ const personalProjectsData = [
     link: "https://kebabadvisor.netlify.app/",
     repository:
       "https://github.com/vitordalbemcosta/Project-KebabAdvisor-client",
+    details: "details about the project",
+    technologies: "js, react, etc",
   },
 ];
 
