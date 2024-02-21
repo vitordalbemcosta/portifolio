@@ -1,21 +1,28 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import emailjs from '@emailjs/browser'
 import Box from '../../components/Box'
 
 const GetInTouch = () => {
+  const [validEmail, setValidEmail] = useState(true)
   const form = useRef()
 
   const sendEmail = (e) => {
     e.preventDefault()
 
     emailjs
-      .sendForm('service_1x7o7ti', 'template_bdmn4hi', form.current, {
-        publicKey: 'NoJd2qYuePKY6rp-b',
-      })
+      .sendForm(
+        process.env.GATSBY_SERVICE_API,
+        process.env.GATSBY_TEMPLATE_API,
+        form.current,
+        {
+          publicKey: process.env.GATSBY_EMAILJS_API,
+        },
+      )
       .then(
         () => {
-          console.log('Sucess, looking forward to chatting to you soon!')
+          console.log('Success, looking forward to chatting to you soon!')
+          form.current.reset() // Clear form fields after submission
         },
         (error) => {
           console.log('FAILED...', error.text)
@@ -23,25 +30,44 @@ const GetInTouch = () => {
       )
   }
 
+  const validateEmail = (email) => {
+    // Basic email validation using regex
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return regex.test(email)
+  }
+
+  const handleEmailChange = (e) => {
+    // Validate email when input value changes
+    setValidEmail(validateEmail(e.target.value))
+  }
+
   return (
     <>
       <Box>
         <Heading>
           Say hello! It will be a pleasure to talk more about my professional
-          path. I'll get back to your shortly
+          path. I'll get back to you shortly.
         </Heading>
         <Subheading>
-          Also, I'm always down for a chat about food, travels and baseball!
+          Also, I'm always down for a chat about food, travels, and baseball!
         </Subheading>
       </Box>
       <Wrapper>
         <Form ref={form} onSubmit={sendEmail}>
           <Label>Name</Label>
-          <Input type="text" name="user_name" />
+          <Input type="text" name="user_name" required />
           <Label>Email</Label>
-          <Input type="email" name="user_email" />
+          <Input
+            type="email"
+            name="user_email"
+            onChange={handleEmailChange}
+            required
+          />
+          {!validEmail && (
+            <ErrorMessage>Please enter a valid email address.</ErrorMessage>
+          )}
           <Label>Message</Label>
-          <Textarea name="message" />
+          <Textarea name="message" required />
           <input type="submit" value="Send" />
         </Form>
       </Wrapper>
@@ -55,6 +81,7 @@ const Heading = styled.h1`
   text-shadow: 1px 1px 2px black;
   font-size: 2.5rem;
 `
+
 const Subheading = styled.h3`
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -81,6 +108,7 @@ const Wrapper = styled.div`
     font-size: 1rem;
   }
 `
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -89,6 +117,7 @@ const Form = styled.form`
   width: 100%;
   font-size: 16px;
 `
+
 const Input = styled.input`
   width: 50%;
   height: 35px;
@@ -101,6 +130,7 @@ const Input = styled.input`
     border: 2px solid rgba(0, 206, 158, 1);
   }
 `
+
 const Label = styled.label`
   margin-top: 2rem;
   font-size: 1.6rem;
@@ -112,6 +142,13 @@ const Label = styled.label`
 const Textarea = styled.textarea`
   width: 50%;
   height: 16rem;
+`
+
+const ErrorMessage = styled.span`
+  color: red;
+  font-size: 1.5rem;
+  margin-top: 14px;
+  text-shadow: 1px 1px 2px black;
 `
 
 export default GetInTouch
