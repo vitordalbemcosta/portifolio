@@ -61,6 +61,8 @@ const Projects = () => {
               <ProjectTitle>{project.title}</ProjectTitle>
               <FontAwesomeIcon icon={faGithub} style={iconStyle} />
             </Link>
+            <ProjectDetails>{project.details}</ProjectDetails>
+            <ProjectTechnologies>{project.technologies}</ProjectTechnologies>
           </ProjectItem>
         ))}
       </ProjectsWrapper>

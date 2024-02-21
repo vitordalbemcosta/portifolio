@@ -10,17 +10,6 @@ const About = () => {
       <AboutWrapper>
         <LeftContent>
           <GlowHeader>Hey!👋 This is me.</GlowHeader>
-          <GlowText>
-            Crafting sleek web experiences with every click - I'm a frontend
-            developer dedicated to building exceptional web applications!
-          </GlowText>
-          <GlowHeaderTechnologies>📚 Education:</GlowHeaderTechnologies>
-          <Technologies>
-            Full-Stack Web Development Bootcamp @ Ironhack Lisbon
-          </Technologies>
-          <Technologies>
-            Bachelor of Arts in Business @ CCT College Dublin
-          </Technologies>
           <GlowHeaderTechnologies>
             ⚛ Here are some technologies I work with:
           </GlowHeaderTechnologies>
@@ -28,6 +17,13 @@ const About = () => {
             #html #css/scss #react #javascript/typescript #handlebars.js
             #node.js #express.js #mongoDB #rest-api #graphql #gatsby.js #git
             #jest #aws #i18n #Jira
+          </Technologies>
+          <GlowHeaderTechnologies>📚 Education:</GlowHeaderTechnologies>
+          <Technologies>
+            Full-Stack Web Development Bootcamp @ Ironhack Lisbon
+          </Technologies>
+          <Technologies>
+            Bachelor of Arts in Business @ CCT College Dublin
           </Technologies>
         </LeftContent>
         <RightContent>
@@ -86,22 +82,6 @@ const GlowHeaderTechnologies = styled.h1`
   }
 `
 
-const GlowText = styled.h3`
-  font-size: 2em;
-  max-width: 600px;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-  text-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.989);
-  line-height: 2.2rem;
-  color: #d1d5d8;
-  margin-bottom: 43px;
-
-  @media screen and (max-width: ${breakpoints.tablet}) {
-    font-size: 1.3em;
-    line-height: 1.8rem;
-  }
-`
 const Technologies = styled.p`
   color: rgba(245, 221, 246, 0.842);
   text-shadow: 0 0 0.3rem rgba(51, 6, 71, 0.989);
