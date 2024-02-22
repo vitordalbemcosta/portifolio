@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import emailjs from '@emailjs/browser'
 import Box from '../../components/Box'
+import breakpoints from '../../breakpoints'
 
 const GetInTouch = () => {
   const [validEmail, setValidEmail] = useState(true)
@@ -22,7 +23,7 @@ const GetInTouch = () => {
       .then(
         () => {
           console.log('Success, looking forward to chatting to you soon!')
-          form.current.reset() // Clear form fields after submission
+          form.current.reset()
         },
         (error) => {
           console.log('FAILED...', error.text)
@@ -31,13 +32,11 @@ const GetInTouch = () => {
   }
 
   const validateEmail = (email) => {
-    // Basic email validation using regex
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return regex.test(email)
   }
 
   const handleEmailChange = (e) => {
-    // Validate email when input value changes
     setValidEmail(validateEmail(e.target.value))
   }
 
@@ -68,6 +67,7 @@ const GetInTouch = () => {
           )}
           <Label>Message</Label>
           <Textarea name="message" required />
+
           <input type="submit" value="Send" />
         </Form>
       </Wrapper>
@@ -76,24 +76,41 @@ const GetInTouch = () => {
 }
 
 const Heading = styled.h1`
-  margin-top: 2rem;
+  margin-top: 10rem;
   color: white;
   text-shadow: 1px 1px 2px black;
-  font-size: 2.5rem;
+  font-size: 3.1rem;
+  padding: 20px;
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+  }
 `
 
 const Subheading = styled.h3`
   margin-top: 2rem;
-  margin-bottom: 1rem;
   color: white;
   text-shadow: 1px 1px 2px black;
-  font-size: 1rem;
+  font-size: 1.4rem;
+  padding: 20px;
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+  }
 `
 
 const Wrapper = styled.div`
-  min-height: 800px;
+  min-height: 68vh;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    min-height: 40vh;
+    display: flex;
+    align-items: flex-start;
+  }
 
   input[type='submit'] {
     margin-top: 2rem;

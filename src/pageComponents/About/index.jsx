@@ -3,13 +3,15 @@ import styled from 'styled-components'
 import PhotoVitor from '../../images/vitor-photo.jpg'
 import Box from '../../components/Box'
 import breakpoints from '../../breakpoints'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 const About = () => {
   return (
     <Box>
       <AboutWrapper>
         <LeftContent>
-          <GlowHeader>Hey!👋 This is me.</GlowHeader>
+          <GlowHeader>This is me.</GlowHeader>
           <GlowHeaderTechnologies>
             ⚛ Here are some technologies I work with:
           </GlowHeaderTechnologies>
@@ -27,7 +29,7 @@ const About = () => {
           </Technologies>
         </LeftContent>
         <RightContent>
-          <Image src={PhotoVitor} alt="Vitor's photo" loading="lazy" />
+          <Image effect="blur" src={PhotoVitor} alt="Vitor's photo" />
         </RightContent>
       </AboutWrapper>
     </Box>
@@ -44,7 +46,7 @@ const AboutWrapper = styled.div`
   align-items: center;
   align-content: center;
   padding: 20px;
-  min-height: 82vh;
+  min-height: 77vh;
 
   @media screen and (max-width: ${breakpoints.tablet}) {
     flex-direction: column;
@@ -87,12 +89,13 @@ const Technologies = styled.p`
   text-shadow: 0 0 0.3rem rgba(51, 6, 71, 0.989);
   opacity: 1;
   font-weight: 600;
+  margin-top: 14px;
 `
 const RightContent = styled.div`
   margin-top: 30px;
 `
 
-const Image = styled.img`
+const Image = styled(LazyLoadImage)`
   width: 100%;
   max-width: 400px;
   border-radius: 800px;

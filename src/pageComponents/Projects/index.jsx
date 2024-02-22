@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import breakpoints from '../../breakpoints'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 const Projects = () => {
   return (
@@ -23,9 +25,9 @@ const Projects = () => {
           <ProjectItem key={project.id}>
             <Link to={project.link} target="_blank" rel="noopener noreferrer">
               <ProjectImage
+                effect="blur"
                 src={project.image}
                 alt={project.title}
-                loading="lazy"
               />
             </Link>
             <Link
@@ -51,7 +53,11 @@ const Projects = () => {
         {personalProjectsData.map((project) => (
           <ProjectItem key={project.id}>
             <Link to={project.link} target="_blank" rel="noopener noreferrer">
-              <ProjectImage src={project.image} alt={project.title} />
+              <ProjectImage
+                effect="blur"
+                src={project.image}
+                alt={project.title}
+              />
             </Link>
             <Link
               to={project.repository}
@@ -96,7 +102,7 @@ const ProjectItem = styled.div`
   padding: 24px;
 `
 
-const ProjectImage = styled.img`
+const ProjectImage = styled(LazyLoadImage)`
   width: 20vw;
   max-width: 350px;
   border-radius: 8px;
@@ -116,8 +122,9 @@ const ProjectImage = styled.img`
 
 const ProjectTitle = styled.h3`
   margin-top: 10px;
-  color: #e6e6e6;
-  text-shadow: 0 0 1rem rgba(0, 0, 0, 0.997);
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-size: 1.2rem;
   transition: color 0.2s ease;
 
   &:hover {

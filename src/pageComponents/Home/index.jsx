@@ -8,10 +8,9 @@ const HomePage = () => {
     <Box>
       <HomeWrapper>
         <Content>
-          <GlowHeader>Hi! I'm Vitor</GlowHeader>
+          <GlowHeader>Hi! I'm Vitor Dalbem Costa</GlowHeader>
           <GlowText>
-            Crafting sleek web experiences with every click - I'm a frontend
-            developer dedicated to building exceptional web applications!
+            Frontend developer. Problem-solver, planner, doer.
           </GlowText>
         </Content>
       </HomeWrapper>
@@ -29,19 +28,18 @@ const HomeWrapper = styled.div`
   align-items: center;
   align-content: center;
   padding: 20px;
-  min-height: 82vh;
+  min-height: 77vh;
 
   @media screen and (max-width: ${breakpoints.tablet}) {
-    flex-direction: column;
-    padding: 20px;
+    max-height: 60vh;
   }
 `
 
 const Content = styled.div`
-  max-width: 600px;
+  max-width: 700px;
 
   @media screen and (max-width: ${breakpoints.tablet}) {
-    margin-bottom: 67vh;
+    margin-bottom: 57vh;
   }
 `
 
@@ -55,7 +53,7 @@ const GlowHeader = styled.h1`
   text-shadow: 0 0 1rem rgba(92, 38, 3, 0.97);
 
   @media screen and (max-width: ${breakpoints.tablet}) {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 `
 

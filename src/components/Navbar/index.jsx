@@ -23,7 +23,7 @@ export default Navbar
 const NavbarWrapper = styled.div`
   top: 0;
   background: transparent;
-  padding: 14px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,7 +52,7 @@ const RightSection = styled.div`
 `
 
 const NavbarItem = styled(Link)`
-  font-size: 22px;
+  font-size: 27px;
   cursor: pointer;
   transition: color 0.2s ease;
   text-decoration: none;
