@@ -91,7 +91,7 @@ const Subheading = styled.h3`
 `
 
 const Wrapper = styled.div`
-  min-height: 700px;
+  min-height: 800px;
   display: flex;
   align-items: center;
 
