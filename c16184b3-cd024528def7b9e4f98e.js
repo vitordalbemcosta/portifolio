@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportifolio_vitor=self.webpackChunkportifolio_vitor||[]).push([[976],{9417:function(i,o,r){r.d(o,{eFW:function(){return c}});var c={prefix:"fas",iconName:"arrow-right",icon:[448,512,[8594],"f061","M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"]}}}]);
+//# sourceMappingURL=c16184b3-cd024528def7b9e4f98e.js.map
