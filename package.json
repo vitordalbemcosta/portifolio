@@ -22,14 +22,19 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "babel-plugin-styled-components": "^2.1.4",
-    "framer-motion": "^11.0.3",
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.0.8",
     "gatsby": "^5.13.2",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-styled-components": "^6.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-lazy-load-image-component": "^1.6.0",
-    "styled-components": "^6.1.8"
+    "react-typist": "^2.0.5",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.5",
+    "styled-components": "^6.1.8",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
     "gh-pages": "^6.1.1"

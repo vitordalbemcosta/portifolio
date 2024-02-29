@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import emailjs from '@emailjs/browser'
 import Box from '../../components/Box'
 import breakpoints from '../../breakpoints'
+import Typist from 'react-typist'
+import 'react-typist/dist/Typist.css'
 
 const GetInTouch = () => {
   const [validEmail, setValidEmail] = useState(true)
@@ -44,8 +46,22 @@ const GetInTouch = () => {
     <>
       <Box>
         <Heading>
-          Say hello! It will be a pleasure to talk more about my professional
-          path. I'll get back to you shortly.
+          <Typist
+            cursor={{ show: false }}
+            avgTypingDelay={60}
+            stdTypingDelay={20}
+          >
+            Say hello!{' '}
+          </Typist>
+          It will be a pleasure to talk more about my professional path.{' '}
+          <Typist
+            cursor={{ show: false }}
+            avgTypingDelay={60}
+            stdTypingDelay={20}
+          >
+            {' '}
+            I'll get back to you shortly.
+          </Typist>
         </Heading>
         <Subheading>
           Also, I'm always down for a chat about food, travels, and baseball!
@@ -67,7 +83,6 @@ const GetInTouch = () => {
           )}
           <Label>Message</Label>
           <Textarea name="message" required />
-
           <input type="submit" value="Send" />
         </Form>
       </Wrapper>
@@ -77,8 +92,7 @@ const GetInTouch = () => {
 
 const Heading = styled.h1`
   margin-top: 10rem;
-  color: white;
-  text-shadow: 1px 1px 2px black;
+  color: black;
   font-size: 3.1rem;
   padding: 20px;
 
@@ -90,8 +104,7 @@ const Heading = styled.h1`
 
 const Subheading = styled.h3`
   margin-top: 2rem;
-  color: white;
-  text-shadow: 1px 1px 2px black;
+  color: black;
   font-size: 1.4rem;
   padding: 20px;
 
@@ -102,7 +115,7 @@ const Subheading = styled.h3`
 `
 
 const Wrapper = styled.div`
-  min-height: 68vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
 
@@ -113,16 +126,17 @@ const Wrapper = styled.div`
   }
 
   input[type='submit'] {
-    margin-top: 2rem;
+    margin-top: 1rem;
     width: 50%;
     height: 2rem;
     cursor: pointer;
     background: rgb(249, 105, 14);
-    color: white;
+    color: black;
     border: none;
     border-radius: 20px;
     font-weight: 600;
     font-size: 1rem;
+    margin-bottom: 30px;
   }
 `
 
@@ -146,19 +160,43 @@ const Input = styled.input`
   &:focus {
     border: 2px solid rgba(0, 206, 158, 1);
   }
+
+  @media screen and (max-width: ${breakpoints.laptop}) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: ${breakpoints.desktop}) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    width: 85%;
+  }
 `
 
 const Label = styled.label`
   margin-top: 2rem;
   font-size: 1.6rem;
-  color: white;
+  color: black;
   font-weight: 500;
-  text-shadow: 1px 1px 2px pink;
 `
 
 const Textarea = styled.textarea`
   width: 50%;
   height: 16rem;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: ${breakpoints.laptop}) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: ${breakpoints.desktop}) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
+    width: 85%;
+  }
 `
 
 const ErrorMessage = styled.span`

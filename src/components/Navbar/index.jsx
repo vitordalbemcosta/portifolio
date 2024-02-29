@@ -1,20 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import { motion } from 'framer-motion'
 import breakpoints from '../../breakpoints'
 
 const Navbar = () => {
   return (
-    <NavbarWrapper>
-      <LeftSection>
-        <NavbarItem to="/">Home</NavbarItem>
-      </LeftSection>
-      <RightSection>
-        <NavbarItem to="/about">About</NavbarItem>
-        <NavbarItem to="/projects">Projects</NavbarItem>
-        <NavbarItem to="/contacts">Contact</NavbarItem>
-      </RightSection>
-    </NavbarWrapper>
+    <motion.div
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.75 }}
+    >
+      <NavbarWrapper>
+        <LeftSection>
+          <NavbarItem to="/">Home</NavbarItem>
+        </LeftSection>
+        <RightSection>
+          <NavbarItem to="/about">About</NavbarItem>
+          <NavbarItem to="/projects">Projects</NavbarItem>
+          <NavbarItem to="/contacts">Contact</NavbarItem>
+        </RightSection>
+      </NavbarWrapper>
+    </motion.div>
   )
 }
 
@@ -27,7 +34,7 @@ const NavbarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #ffffffd6;
+  color: black;
   margin-bottom: 20px;
   transition: margin 0.1s ease;
 `

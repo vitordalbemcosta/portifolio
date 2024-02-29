@@ -5,20 +5,20 @@ import Box from '../../components/Box'
 import personalProjectsData from '../../utils/personalProjectsData'
 import professionalProjectsData from '../../utils/professionalProjectsDatal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import breakpoints from '../../breakpoints'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/blur.css'
+import Typist from 'react-typist'
+import 'react-typist/dist/Typist.css'
 
 const Projects = () => {
   return (
     <Box>
       <Section>
-        <ArrowIcon icon={faArrowRight} />
-        <Title>
-          <WhiteText>Projects</WhiteText> ('Professional')
-        </Title>
+        <Typist cursor={{ show: false }} avgTypingDelay={30} stdTypingDelay={1}>
+          <Title>Projects (Professional)</Title>
+        </Typist>
       </Section>
       <ProjectsWrapper>
         {professionalProjectsData.map((project) => (
@@ -44,10 +44,9 @@ const Projects = () => {
         ))}
       </ProjectsWrapper>
       <Section>
-        <ArrowIcon icon={faArrowRight} />
-        <Title>
-          <WhiteText>Projects</WhiteText> ('Personal && School')
-        </Title>
+        <Typist cursor={{ show: false }} avgTypingDelay={30} stdTypingDelay={1}>
+          <Title>Projects (Personal && School)</Title>
+        </Typist>
       </Section>
       <ProjectsWrapper>
         {personalProjectsData.map((project) => (
@@ -80,7 +79,7 @@ export default Projects
 
 const iconStyle = {
   margin: '20px 10px 16px 10px',
-  color: '#ffffff',
+  color: 'black',
   width: '36px',
   height: '36px',
 }
@@ -111,8 +110,8 @@ const ProjectImage = styled(LazyLoadImage)`
   margin-bottom: 26px;
 
   &:hover {
-    transform: scale(1.1);
-    opacity: 0.4;
+    transform: scale(1.29);
+    opacity: 1;
   }
 
   @media screen and (max-width: ${breakpoints.tablet}) {
@@ -122,8 +121,7 @@ const ProjectImage = styled(LazyLoadImage)`
 
 const ProjectTitle = styled.h3`
   margin-top: 10px;
-  color: white;
-  text-shadow: 1px 1px 2px black;
+  color: black;
   font-size: 1.2rem;
   transition: color 0.2s ease;
 
@@ -135,12 +133,11 @@ const ProjectDetails = styled.h3`
   margin-top: 20px;
   font-size: 18px;
   font-weight: 400;
-  color: #e4e8e5;
-  text-shadow: 0 0 3rem rgba(0, 0, 0, 0.997);
+  color: black;
 `
 const ProjectTechnologies = styled.h3`
-  color: rgba(245, 221, 246, 0.842);
-  text-shadow: 0 0 0.3rem rgba(51, 6, 71, 0.989);
+  color: #a39d9deb;
+  text-shadow: 3px black;
   opacity: 1;
   font-weight: 200;
   margin-top: 20px;
@@ -162,16 +159,7 @@ const Section = styled.div`
 `
 
 const Title = styled.h2`
-  color: #ffc107;
+  color: black;
   display: flex;
   align-items: center;
-`
-
-const WhiteText = styled.span`
-  color: white;
-`
-
-const ArrowIcon = styled(FontAwesomeIcon)`
-  color: #ffc107;
-  margin-right: 5px;
 `

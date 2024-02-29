@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Button } from 'semantic-ui-react'
+import Typist from 'react-typist'
+import 'react-typist/dist/Typist.css'
 import Box from '../../components/Box'
 import breakpoints from '../../breakpoints'
 
@@ -8,10 +11,20 @@ const HomePage = () => {
     <Box>
       <HomeWrapper>
         <Content>
-          <GlowHeader>Hi! I'm Vitor Dalbem Costa</GlowHeader>
-          <GlowText>
-            Frontend developer. Problem-solver, planner, doer.
-          </GlowText>
+          <Typist
+            cursor={{ show: false }}
+            avgTypingDelay={35}
+            stdTypingDelay={1}
+          >
+            <Heading>Hi! I'm Vitor Dalbem Costa</Heading>
+            <SubHeading>
+              Frontend developer. Problem-solver, planner, doer.
+            </SubHeading>
+
+            <a href="vitor-dalbem.pdf" download="vitor-dalbem.pdf">
+              <StyledButton color="orange">Download my CV</StyledButton>
+            </a>
+          </Typist>
         </Content>
       </HomeWrapper>
     </Box>
@@ -28,7 +41,7 @@ const HomeWrapper = styled.div`
   align-items: center;
   align-content: center;
   padding: 20px;
-  min-height: 77vh;
+  min-height: 82vh;
 
   @media screen and (max-width: ${breakpoints.tablet}) {
     max-height: 60vh;
@@ -43,32 +56,45 @@ const Content = styled.div`
   }
 `
 
-const GlowHeader = styled.h1`
+const Heading = styled.h1`
   font-size: 3em;
   margin-bottom: 25px;
   position: relative;
   overflow: hidden;
   letter-spacing: -0.025em;
-  color: #fff;
-  text-shadow: 0 0 1rem rgba(92, 38, 3, 0.97);
+  color: black;
 
   @media screen and (max-width: ${breakpoints.tablet}) {
     margin-bottom: 40px;
   }
 `
 
-const GlowText = styled.h3`
+const SubHeading = styled.h3`
   font-size: 1.9em;
   max-width: 850px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   line-height: 2.25rem;
-  text-shadow: 0 0 0.1rem rgba(4, 4, 2, 0.989);
-  color: #ffc107;
+  color: #edb91ce2;
 
   @media screen and (max-width: ${breakpoints.tablet}) {
     font-size: 1.3em;
     line-height: 1.8rem;
+  }
+`
+
+const StyledButton = styled(Button)`
+  &&& {
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    padding: 14px 28px;
+    font-size: 1.2em;
+    margin-top: 23px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #1678b1;
+    }
   }
 `
