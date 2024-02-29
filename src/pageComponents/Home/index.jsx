@@ -13,7 +13,7 @@ const HomePage = () => {
         <Content>
           <Typist
             cursor={{ show: false }}
-            avgTypingDelay={35}
+            avgTypingDelay={38}
             stdTypingDelay={1}
           >
             <Heading>Hi! I'm Vitor Dalbem Costa</Heading>
@@ -52,7 +52,7 @@ const Content = styled.div`
   max-width: 700px;
 
   @media screen and (max-width: ${breakpoints.tablet}) {
-    margin-bottom: 57vh;
+    margin-bottom: 50vh;
   }
 `
 
@@ -65,7 +65,7 @@ const Heading = styled.h1`
   color: black;
 
   @media screen and (max-width: ${breakpoints.tablet}) {
-    margin-bottom: 40px;
+    margin: 80px 0 35px 0;
   }
 `
 
