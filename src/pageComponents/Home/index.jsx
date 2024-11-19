@@ -18,9 +18,9 @@ const HomePage = () => {
           >
             <Heading>Hi! I'm Vitor Dalbem Costa</Heading>
             <SubHeading>
-              Frontend developer. Problem-solver, planner, doer.
+              FullStack Dev. Problem-solver, planner, doer.
             </SubHeading>
-
+            <Typist.Delay ms={500} />
             <a href="vitor-dalbem.pdf" download="vitor-dalbem.pdf">
               <StyledButton color="orange">Download my CV</StyledButton>
             </a>

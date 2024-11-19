@@ -24,10 +24,10 @@ const About = () => {
             ⚛ Here are some technologies I work with:
           </GlowHeaderTechnologies>
           <Technologies>
-            #HTML #CSS/Scss #React.js #JavaScript/TypeScript #Handlebars.js
-            #Node.js #Express.js #MongoDB #Rest-API #Graphql #Gatsby.js #Git
-            #GitHub #GitLabs #React-testing-library #Jest #AWS #I18n #Jira
-            #Kanban
+            #Angular C# .net #HTML #CSS/Scss #React.js #JavaScript/TypeScript
+            #Handlebars.js #Node.js #Express.js #MongoDB #Rest-API #Graphql
+            #Gatsby.js #Git #GitHub #GitLabs #React-testing-library #Jest #AWS
+            #I18n #Jira #Kanban
           </Technologies>
           <GlowHeaderTechnologies>📚 Education:</GlowHeaderTechnologies>
           <Technologies>

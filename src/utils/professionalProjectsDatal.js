@@ -3,10 +3,22 @@ import sundayMktpImage from "../images/sunday-mktp.png";
 import safebrokEuropeImage from "../images/safebrok-europe.png";
 import safebrokPtImage from "../images/safebrok-pt.png";
 import simulatorImage from "../images/simulator.png";
+import hmvImage from "../images/hmv.png";
 
 const professionalProjectsData = [
   {
     id: 1,
+    title: "Hospital Moinhos de Vento - SISP",
+    image: hmvImage,
+    link: "https://sispappdev.codefi.com.br/auth/login",
+    repository: "https://github.com/AgroBICodefi",
+    details:
+      "Software for a hospital in Porto Alegre - Brazil. This Software allows cross-departmental communication to create orders of medical supplies, goods, services, and investments. I was resposible for the creating of the Frontend using Angular, of various modules of this project, as well as the creation of the necessary CRUDs in the backend to support the frontend functionalities using C# .NET Core and Entity Framework Core.",
+    technologies:
+      "#Angular C# .net  #SCSS #Typescript #I18n #Jira #Git #GitHub",
+  },
+  {
+    id: 2,
     title: "Safebrok Seguros",
     image: safebrokPtImage,
     link: "https://www.safebrok.com",
@@ -17,7 +29,7 @@ const professionalProjectsData = [
       "#React.js #Gatsby.js #Styled-components #Typescript #Contentful #Rest #Graphql #AWS #I18n #Lokalise #Jest",
   },
   {
-    id: 2,
+    id: 3,
     title: "Safebrok Europe",
     image: safebrokEuropeImage,
     link: "https://www.safebrokeurope.com",
@@ -28,7 +40,7 @@ const professionalProjectsData = [
       "#React #Gatsby.js #Styled-components #Typescript #Contentful #Rest #Graphql #AWS #I18n #Lokalise #Jest",
   },
   {
-    id: 3,
+    id: 4,
     title: "Smart Investment Simulator",
     image: simulatorImage,
     link: "https://smartinvestmentsimulator.com/en/",
@@ -38,7 +50,7 @@ const professionalProjectsData = [
     technologies: "#React.js #Gatsby.js #Styled-components #Typescript #Jest",
   },
   {
-    id: 4,
+    id: 5,
     title: "Neowintech Website",
     image: neowintechImage,
     link: "https://neowintech.com/",
@@ -49,7 +61,7 @@ const professionalProjectsData = [
       "#React.js #Gatsby.js #Tailwindcss #Typescript #React-intl #d3",
   },
   {
-    id: 5,
+    id: 6,
     title: "My Sunday Marketplace",
     image: sundayMktpImage,
     link: "https://mysundaymarketplace.com/en/",
