@@ -80,20 +80,22 @@ Never commit real credentials. Only variables prefixed with `GATSBY_` are availa
 | Command | Purpose |
 | --- | --- |
 | `npm run develop` | Start the local development server |
-| `npm run build` | Generate the production build |
+| `npm run build` | Generate the production build (including the Windows path compatibility workaround) |
 | `npm run serve` | Preview the production build locally |
 | `npm run clean` | Clear Gatsby-generated caches and output |
 | `npm run deploy` | Build with the repository path prefix and publish to GitHub Pages |
 
 ## Deployment
 
-The production site is hosted on GitHub Pages. Merging an approved change into the `main` branch triggers the configured deployment workflow automatically.
+The production site is hosted on GitHub Pages from the `gh-pages` branch. Deployments are currently started manually from the local `master` branch:
 
 Before merging, verify that the production build completes successfully:
 
 ```bash
-npm run build
+npm run deploy
 ```
+
+The deploy command creates the prefixed Gatsby build and publishes the generated `public` directory to `gh-pages`. On Windows it also works around Gatsby's issue with accented user-directory paths automatically.
 
 ## Accessibility and performance
 

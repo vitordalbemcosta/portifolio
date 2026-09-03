@@ -15,10 +15,10 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build",
+    "build": "node scripts/gatsby-build.js",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "node scripts/gatsby-build.js --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
