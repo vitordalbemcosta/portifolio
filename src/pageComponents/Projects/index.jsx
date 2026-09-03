@@ -1,165 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import Box from '../../components/Box'
 import personalProjectsData from '../../utils/personalProjectsData'
 import professionalProjectsData from '../../utils/professionalProjectsDatal'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import breakpoints from '../../breakpoints'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
-import Typist from 'react-typist'
-import 'react-typist/dist/Typist.css'
 
-const Projects = () => {
-  return (
-    <Box>
-      <Section>
-        <Typist cursor={{ show: false }} avgTypingDelay={30} stdTypingDelay={1}>
-          <Title>Projects (Professional)</Title>
-        </Typist>
-      </Section>
-      <ProjectsWrapper>
-        {professionalProjectsData.map((project) => (
-          <ProjectItem key={project.id}>
-            <Link to={project.link} target="_blank" rel="noopener noreferrer">
-              <ProjectImage
-                effect="blur"
-                src={project.image}
-                alt={project.title}
-              />
-            </Link>
-            <Link
-              to={project.repository}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ProjectTitle>{project.title}</ProjectTitle>
-              <FontAwesomeIcon icon={faGithub} style={iconStyle} />
-            </Link>
-            <ProjectDetails>{project.details}</ProjectDetails>
-            <ProjectTechnologies>{project.technologies}</ProjectTechnologies>
-          </ProjectItem>
-        ))}
-      </ProjectsWrapper>
-      <Section>
-        <Typist cursor={{ show: false }} avgTypingDelay={30} stdTypingDelay={1}>
-          <Title>Projects (Personal && School)</Title>
-        </Typist>
-      </Section>
-      <ProjectsWrapper>
-        {personalProjectsData.map((project) => (
-          <ProjectItem key={project.id}>
-            <Link to={project.link} target="_blank" rel="noopener noreferrer">
-              <ProjectImage
-                effect="blur"
-                src={project.image}
-                alt={project.title}
-              />
-            </Link>
-            <Link
-              to={project.repository}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ProjectTitle>{project.title}</ProjectTitle>
-              <FontAwesomeIcon icon={faGithub} style={iconStyle} />
-            </Link>
-            <ProjectDetails>{project.details}</ProjectDetails>
-            <ProjectTechnologies>{project.technologies}</ProjectTechnologies>
-          </ProjectItem>
-        ))}
-      </ProjectsWrapper>
-    </Box>
-  )
-}
-
+const toTags = value => value.split(/\s+#/).map(tag => tag.replace(/^#/, '').trim()).filter(Boolean)
+const ProjectCard = ({ project, priority = false }) => <Card><ImageLink href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title}`}><img src={project.image} alt="" width="1620" height="1050" loading={priority ? 'eager' : 'lazy'} fetchPriority={priority ? 'high' : 'auto'} /></ImageLink><CardBody><h3>{project.title}</h3><p>{project.details}</p><TagList aria-label="Technologies">{toTags(project.technologies).map((tag,index)=><li key={`${tag}-${index}`}>{tag}</li>)}</TagList><CardLinks><a href={project.link} target="_blank" rel="noopener noreferrer">Visit project <span aria-hidden="true">↗</span></a><a href={project.repository} target="_blank" rel="noopener noreferrer">Repository <span aria-hidden="true">↗</span></a></CardLinks></CardBody></Card>
+const Projects = () => <Page><Header><Kicker>Selected work</Kicker><h1>Products built for people, teams and real-world complexity.</h1><p>A selection of professional and independent work across frontend platforms, financial products, healthcare and full-stack applications.</p></Header><Section aria-labelledby="professional"><SectionTitle><span>01</span><h2 id="professional">Professional projects</h2></SectionTitle><Grid>{professionalProjectsData.map((project,i)=><ProjectCard project={project} priority={i<2} key={project.id}/>)}</Grid></Section><Section aria-labelledby="personal"><SectionTitle><span>02</span><h2 id="personal">Personal & early work</h2></SectionTitle><Grid>{personalProjectsData.map(project=><ProjectCard project={project} key={project.id}/>)}</Grid></Section></Page>
 export default Projects
-
-const iconStyle = {
-  margin: '20px 10px 16px 10px',
-  color: 'black',
-  width: '36px',
-  height: '36px',
-}
-
-const ProjectsWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin: 60px 0;
-
-  @media screen and (max-width: ${breakpoints.tablet}) {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-  }
-`
-
-const ProjectItem = styled.div`
-  padding: 24px;
-`
-
-const ProjectImage = styled(LazyLoadImage)`
-  width: 20vw;
-  max-width: 350px;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  gap: 20px;
-  margin-bottom: 26px;
-
-  &:hover {
-    transform: scale(1.29);
-    opacity: 1;
-  }
-
-  @media screen and (max-width: ${breakpoints.tablet}) {
-    width: 75vw;
-  }
-`
-
-const ProjectTitle = styled.h3`
-  margin-top: 10px;
-  color: black;
-  font-size: 1.2rem;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: #ffc107;
-  }
-`
-const ProjectDetails = styled.h3`
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: 400;
-  color: black;
-`
-const ProjectTechnologies = styled.h3`
-  color: #a39d9deb;
-  text-shadow: 3px black;
-  opacity: 1;
-  font-weight: 200;
-  margin-top: 20px;
-`
-
-const Section = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin: 60px 0;
-
-  @media screen and (max-width: ${breakpoints.tablet}) {
-    justify-content: start;
-    margin-left: 25px;
-  }
-`
-
-const Title = styled.h2`
-  color: black;
-  display: flex;
-  align-items: center;
-`
+const Page=styled(Box)`padding-top:clamp(64px,9vw,128px);padding-bottom:clamp(72px,10vw,110px);`
+const Kicker=styled.p`margin:0;color:var(--color-accent-strong);font-size:.78rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;`
+const Header=styled.header`max-width:920px;margin-bottom:clamp(72px,11vw,140px);h1{font-size:clamp(2.7rem,7vw,6.5rem);line-height:.98;letter-spacing:-.055em;margin:20px 0 30px;overflow-wrap:anywhere;}p:last-child{font-size:clamp(1.03rem,2vw,1.25rem);color:var(--color-muted);max-width:720px;}@media(max-width:380px){h1{font-size:2.45rem;}}`
+const Section=styled.section`&+&{margin-top:clamp(72px,10vw,110px);}`
+const SectionTitle=styled.div`display:flex;gap:16px;align-items:center;margin-bottom:34px;border-bottom:1px solid var(--color-line);padding-bottom:18px;span{font-size:.72rem;color:var(--color-accent-strong);font-weight:800;}h2{font-size:clamp(1.5rem,3vw,2.2rem);margin:0;letter-spacing:-.035em;}`
+const Grid=styled.div`display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,4vw,46px);@media(max-width:860px){grid-template-columns:1fr}`
+const Card=styled.article`min-width:0;overflow:hidden;border:1px solid var(--color-line);border-radius:var(--radius-lg);background:rgba(255,255,255,.72);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;@media(hover:hover) and (pointer:fine){&:hover{transform:translateY(-5px);border-color:rgba(243,107,33,.55);box-shadow:var(--shadow-soft);}}`
+const ImageLink=styled.a`display:block;overflow:hidden;aspect-ratio:16/10;background:#ece8e1;img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease;}@media(hover:hover) and (pointer:fine){${Card}:hover & img{transform:scale(1.035);}}`
+const CardBody=styled.div`padding:clamp(22px,4vw,34px);h3{font-size:clamp(1.25rem,2vw,1.65rem);margin:0 0 14px;letter-spacing:-.03em;}p{color:var(--color-muted);margin:0;}`
+const TagList=styled.ul`display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:24px 0;li{padding:6px 9px;border-radius:999px;background:#f2eee8;font-size:.69rem;font-weight:750;}`
+const CardLinks=styled.div`display:flex;gap:20px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--color-line);a{font-size:.82rem;font-weight:750;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:color .2s,text-decoration-color .2s;}a:hover{color:var(--color-accent-strong);text-decoration-color:currentColor;}span{display:inline-block;transition:transform .2s;}a:hover span{transform:translate(2px,-2px);}`

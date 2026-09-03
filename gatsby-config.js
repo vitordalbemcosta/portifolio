@@ -9,15 +9,17 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Vitor Dalbem Costa Portfolio`,
-    siteUrl: `https://www.yourdomain.tld`,
+    description: `Software Developer in Lisbon focused on accessible interfaces and scalable digital products.`,
+    siteUrl: `https://vitordalbemcosta.github.io/portifolio`,
   },
   pathPrefix: "/portifolio",
   plugins: [
     "gatsby-plugin-styled-components",
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/favicon.png",
+        icon: "src/images/favicon.svg",
       },
     },
   ],

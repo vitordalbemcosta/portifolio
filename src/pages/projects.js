@@ -1,5 +1,6 @@
 import React from "react";
 import Projects from "../pageComponents/Projects";
+import Seo from "../components/Seo";
 
 const ProjectsPage = () => {
   return <Projects />;
@@ -7,4 +8,4 @@ const ProjectsPage = () => {
 
 export default ProjectsPage;
 
-export const Head = () => <title>Projects - Vitor Dalbem Costa</title>;
+export const Head = () => <Seo title="Selected work" pathname="/projects/" description="Selected professional and personal software projects by Vitor Dalbem Costa." />;

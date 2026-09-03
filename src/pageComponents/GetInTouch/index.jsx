@@ -2,208 +2,25 @@ import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import emailjs from '@emailjs/browser'
 import Box from '../../components/Box'
-import breakpoints from '../../breakpoints'
-import Typist from 'react-typist'
-import 'react-typist/dist/Typist.css'
 
 const GetInTouch = () => {
-  const [validEmail, setValidEmail] = useState(true)
-  const form = useRef()
-
-  const sendEmail = (e) => {
-    e.preventDefault()
-
-    emailjs
-      .sendForm(
-        process.env.GATSBY_SERVICE_API,
-        process.env.GATSBY_TEMPLATE_API,
-        form.current,
-        {
-          publicKey: process.env.GATSBY_EMAILJS_API,
-        },
-      )
-      .then(
-        () => {
-          console.log('Success, looking forward to chatting to you soon!')
-          form.current.reset()
-        },
-        (error) => {
-          console.log('FAILED...', error.text)
-        },
-      )
+  const form = useRef(null)
+  const [status, setStatus] = useState('idle')
+  const sendEmail = async event => {
+    event.preventDefault(); setStatus('sending')
+    try {
+      await emailjs.sendForm(process.env.GATSBY_SERVICE_API, process.env.GATSBY_TEMPLATE_API, form.current, { publicKey: process.env.GATSBY_EMAILJS_API })
+      form.current.reset(); setStatus('success')
+    } catch { setStatus('error') }
   }
-
-  const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return regex.test(email)
-  }
-
-  const handleEmailChange = (e) => {
-    setValidEmail(validateEmail(e.target.value))
-  }
-
-  return (
-    <>
-      <Box>
-        <Heading>
-          <Typist
-            cursor={{ show: false }}
-            avgTypingDelay={60}
-            stdTypingDelay={20}
-          >
-            Say hello!{' '}
-          </Typist>
-          It will be a pleasure to talk more about my professional path.{' '}
-          <Typist
-            cursor={{ show: false }}
-            avgTypingDelay={60}
-            stdTypingDelay={20}
-          >
-            {' '}
-            I'll get back to you shortly.
-          </Typist>
-        </Heading>
-        <Subheading>
-          Also, I'm always down for a chat about food, travels, and baseball!
-        </Subheading>
-      </Box>
-      <Wrapper>
-        <Form ref={form} onSubmit={sendEmail}>
-          <Label>Name</Label>
-          <Input type="text" name="user_name" required />
-          <Label>Email</Label>
-          <Input
-            type="email"
-            name="user_email"
-            onChange={handleEmailChange}
-            required
-          />
-          {!validEmail && (
-            <ErrorMessage>Please enter a valid email address.</ErrorMessage>
-          )}
-          <Label>Message</Label>
-          <Textarea name="message" required />
-          <input type="submit" value="Send" />
-        </Form>
-      </Wrapper>
-    </>
-  )
+  return <Page><Intro><Kicker>Contact</Kicker><h1>Let’s build something clear, useful and lasting.</h1><p>Have a role, product challenge or idea in mind? Send a message and I’ll get back to you as soon as I can.</p><DirectLinks><a href="https://www.linkedin.com/in/vitordalbemcosta/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/vitordalbemcosta" target="_blank" rel="noopener noreferrer">GitHub ↗</a></DirectLinks></Intro><Form ref={form} onSubmit={sendEmail}><Field><label htmlFor="name">Name</label><input id="name" name="user_name" autoComplete="name" required /></Field><Field><label htmlFor="email">Email</label><input id="email" type="email" name="user_email" autoComplete="email" required /></Field><Field><label htmlFor="message">Message</label><textarea id="message" name="message" rows="7" required /></Field><Submit type="submit" disabled={status==='sending'}>{status==='sending'?'Sending…':'Send message'} <span aria-hidden="true">↗</span></Submit><Status role="status" aria-live="polite">{status==='success'&&'Thank you — your message has been sent.'}{status==='error'&&'Something went wrong. Please try again or contact me on LinkedIn.'}</Status></Form></Page>
 }
-
-const Heading = styled.h1`
-  margin-top: 10rem;
-  color: black;
-  font-size: 3.1rem;
-  padding: 20px;
-
-  @media screen and (max-width: ${breakpoints.tablet}) {
-    font-size: 2.5rem;
-    margin-top: 1rem;
-  }
-`
-
-const Subheading = styled.h3`
-  margin-top: 2rem;
-  color: black;
-  font-size: 1.4rem;
-  padding: 20px;
-
-  @media screen and (max-width: ${breakpoints.tablet}) {
-    font-size: 1.6rem;
-    margin-top: 1rem;
-  }
-`
-
-const Wrapper = styled.div`
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-
-  @media screen and (max-width: ${breakpoints.tablet}) {
-    min-height: 40vh;
-    display: flex;
-    align-items: flex-start;
-  }
-
-  input[type='submit'] {
-    margin-top: 1rem;
-    width: 50%;
-    height: 2rem;
-    cursor: pointer;
-    background: rgb(249, 105, 14);
-    color: black;
-    border: none;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 30px;
-  }
-`
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-  width: 100%;
-  font-size: 16px;
-`
-
-const Input = styled.input`
-  width: 50%;
-  height: 35px;
-  padding: 7px;
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid rgb(220, 220, 220);
-
-  &:focus {
-    border: 2px solid rgba(0, 206, 158, 1);
-  }
-
-  @media screen and (max-width: ${breakpoints.laptop}) {
-    width: 80%;
-  }
-
-  @media screen and (max-width: ${breakpoints.desktop}) {
-    width: 90%;
-  }
-
-  @media screen and (max-width: ${breakpoints.tablet}) {
-    width: 85%;
-  }
-`
-
-const Label = styled.label`
-  margin-top: 2rem;
-  font-size: 1.6rem;
-  color: black;
-  font-weight: 500;
-`
-
-const Textarea = styled.textarea`
-  width: 50%;
-  height: 16rem;
-  margin-bottom: 20px;
-
-  @media screen and (max-width: ${breakpoints.laptop}) {
-    width: 80%;
-  }
-
-  @media screen and (max-width: ${breakpoints.desktop}) {
-    width: 90%;
-  }
-
-  @media screen and (max-width: ${breakpoints.tablet}) {
-    width: 85%;
-  }
-`
-
-const ErrorMessage = styled.span`
-  color: red;
-  font-size: 1.5rem;
-  margin-top: 14px;
-  text-shadow: 1px 1px 2px black;
-`
-
 export default GetInTouch
+const Page=styled(Box)`display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,1fr);gap:clamp(48px,9vw,120px);padding-top:clamp(64px,9vw,128px);padding-bottom:clamp(72px,10vw,128px);@media(max-width:960px){grid-template-columns:1fr;gap:56px}`
+const Intro=styled.div`min-width:0;h1{font-size:clamp(2.7rem,6vw,5.5rem);line-height:1;letter-spacing:-.055em;margin:18px 0 30px;overflow-wrap:anywhere;}p{font-size:1.1rem;color:var(--color-muted);max-width:570px;}@media(max-width:380px){h1{font-size:2.45rem;}}`
+const Kicker=styled.p`margin:0!important;color:var(--color-accent-strong)!important;font-size:.78rem!important;font-weight:800;letter-spacing:.15em;text-transform:uppercase;`
+const DirectLinks=styled.div`display:flex;flex-wrap:wrap;gap:20px;margin-top:36px;a{font-weight:750;text-decoration:underline;text-decoration-color:var(--color-line);text-underline-offset:5px;}a:hover{color:var(--color-accent-strong);}`
+const Form=styled.form`align-self:start;padding:clamp(24px,4vw,42px);border:1px solid var(--color-line);border-radius:var(--radius-lg);background:rgba(255,255,255,.72);box-shadow:var(--shadow-soft);`
+const Field=styled.div`&+&{margin-top:22px;}label{display:block;margin-bottom:8px;font-size:.8rem;font-weight:750;}input,textarea{width:100%;border:1px solid var(--color-line);border-radius:12px;background:#fff;padding:13px 14px;color:var(--color-ink);resize:vertical;transition:border-color .2s,box-shadow .2s;}input:focus,textarea:focus{border-color:var(--color-accent);box-shadow:0 0 0 3px rgba(243,107,33,.12);outline:none;}`
+const Submit=styled.button`display:flex;justify-content:center;align-items:center;gap:10px;width:100%;margin-top:24px;padding:14px 20px;border:0;border-radius:999px;background:var(--color-ink);color:#fff;font-weight:750;cursor:pointer;transition:transform .2s,background .2s;&:hover:not(:disabled){transform:translateY(-2px);background:var(--color-accent-strong);}&:disabled{opacity:.65;cursor:wait;}`
+const Status=styled.p`min-height:24px;margin:14px 0 0;color:var(--color-muted);font-size:.85rem;`

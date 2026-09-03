@@ -1,49 +1,9 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+import Seo from '../components/Seo'
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-const NotFoundPage = () => {
-  return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
-
+const NotFoundPage = () => <Page><span>404</span><h1>This page has wandered off.</h1><p>The address may have changed, or the page may no longer exist.</p><Link to="/">Return home <b aria-hidden="true">↗</b></Link></Page>
 export default NotFoundPage
-
-export const Head = () => <title>Not found</title>
+export const Head = () => <Seo title="Page not found" pathname="/404/" />
+const Page=styled.section`width:min(calc(100% - 40px),800px);margin:auto;min-height:72vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;span{color:var(--color-accent-strong);font-size:.8rem;font-weight:800;letter-spacing:.16em;}h1{font-size:clamp(3rem,8vw,6rem);line-height:1;letter-spacing:-.055em;margin:18px 0;}p{color:var(--color-muted);font-size:1.1rem;}a{margin-top:22px;padding:13px 20px;border-radius:999px;background:var(--color-ink);color:#fff!important;font-weight:750;}`

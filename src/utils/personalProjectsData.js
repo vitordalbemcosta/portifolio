@@ -1,16 +1,16 @@
-import SaveProgrammingImage from "../images/save-programming.png";
-import KebabAdvisorImage from "../images/kebab-advisor.png";
-import IronKicksImages from "../images/iron-kicks.png";
+import SaveProgrammingImage from "../images/optimized/save-programming.webp";
+import KebabAdvisorImage from "../images/optimized/kebab-advisor.webp";
+import IronKicksImages from "../images/optimized/iron-kicks.webp";
 
 const personalProjectsData = [
   {
     id: 1,
-    title: "Save programing shooting game",
+    title: "Save Programming",
     image: SaveProgrammingImage,
     link: "https://vitordalbemcosta.github.io/Project_1/#game-board",
     repository: "https://github.com/vitordalbemcosta/Project_1",
     details:
-      "This was my very first project when taking the full-stack webdev course @ Ironhack, it is a shooting game build in vanilla JS using canva moving the items on screen from Y to X",
+      "My first project during Ironhack’s full-stack bootcamp: a browser shooting game built with vanilla JavaScript and the Canvas API.",
     technologies: "#HTML #CSS #JavaScript",
   },
   {
@@ -20,7 +20,7 @@ const personalProjectsData = [
     link: "https://ironkicks.herokuapp.com/",
     repository: "https://github.com/vitordalbemcosta/project2_ironkicks",
     details:
-      "Ironkicks was a pair project that I had the pleasure of developing with fellow ex-colleague Joao Pedro. Ironkicks was our first project implementing CRUD. The user is able to create a an account - log in / log off. Search for any snearker available on the API used. Add the chosen sneaker to it's favorites, remove from it's favorites, edit how many they wanted in their favorites, etc.",
+      "A pair-programming project exploring full CRUD flows. Users can create an account, browse sneakers from an external API and manage a personal favourites collection.",
     technologies:
       "#Express.js #Node.js #MongoDB #JavaScript #HTMl #CSS #Handlebars.js",
   },
@@ -32,7 +32,7 @@ const personalProjectsData = [
     repository:
       "https://github.com/vitordalbemcosta/Project-KebabAdvisor-client",
     details:
-      "MERN application awardaded with the most original project of cohort. Application separated in two repos for user and server side. The user is able to create an account to log in and log off. They are able to search for the Kebab restaurants in Lisbon and check more details about them. Gluten free, vegan friendly, etc. The user is once logged in is able to leave a review on a scale of 1 to 5 start to the restaurant and leave them a review about the user's experience.",
+      "A MERN application split into client and server repositories. Users can discover kebab restaurants in Lisbon, filter by dietary needs and leave ratings and reviews after signing in.",
     technologies: "MongoDB #Express.js #React.js #Node.js #CSS #Postman",
   },
 ];

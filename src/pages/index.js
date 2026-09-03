@@ -1,6 +1,6 @@
 import React from "react";
 import HomePage from "../pageComponents/Home";
-import "../styles/global.css";
+import Seo from "../components/Seo";
 
 const IndexPage = () => {
   return <HomePage />;
@@ -8,4 +8,4 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head = () => <title>Vitor Dalbem - Frontend Developer</title>;
+export const Head = () => <Seo />;
