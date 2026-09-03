@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import Box from '../../components/Box'
 
 const skills = {
-  Frontend: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Gatsby', 'Angular', 'HTML', 'CSS / SCSS'],
-  'UI & forms': ['React Hook Form', 'Accessible UI', 'Responsive design', 'AGORA Design System'],
-  'CMS & data': ['Payload CMS', 'Contentful', 'REST APIs', 'GraphQL'],
-  Engineering: ['C# / .NET', 'Git', 'Jest', 'React Testing Library', 'AWS', 'CI/CD'],
+  'Frontend development': ['JavaScript', 'TypeScript', 'React.js', 'Next.js', 'Gatsby', 'Angular', 'HTML', 'CSS / SCSS', 'Tailwind CSS', 'styled-components'],
+  'UI, forms & CMS': ['React Hook Form', 'Payload CMS', 'Contentful', 'AGORA Design System', 'Accessible UI', 'Responsive design'],
+  'Backend & data': ['C# / .NET', 'Node.js', 'Express.js', 'SQL', 'SQL Server', 'PostgreSQL', 'MongoDB', 'REST APIs / Web Services', 'GraphQL', 'Swagger / OpenAPI', 'Postman'],
+  'DevOps & quality': ['Docker', 'Git', 'GitLab', 'CI/CD', 'AWS', 'SonarQube', 'Jest', 'React Testing Library'],
+  'Product collaboration': ['OpenProject', 'Miro', 'Figma', 'Jira', 'Kanban'],
 }
 
 const TagList = ({ items }) => <Tags aria-label="Technologies used">{items.map(tag => <li key={tag}>{tag}</li>)}</Tags>
@@ -46,7 +47,7 @@ const About = () => (
               <li>Improving and modernizing legacy code while preserving business-critical behaviour.</li>
               <li>Working across frontend, backend and integration concerns within an established product ecosystem.</li>
             </ul>
-            <TagList items={['Angular', 'C#', '.NET', 'Full-stack development', 'Legacy modernization']} />
+            <TagList items={['Angular', 'C#', '.NET', 'SQL', 'SQL Server', 'Full-stack development']} />
           </CurrentProject>
 
           <SelectedProject>
@@ -102,7 +103,7 @@ const ProjectLabel = styled.span`font-size:.7rem;font-weight:800;letter-spacing:
 const ProjectMeta = styled.p`margin:0 0 24px;font-size:.86rem;font-weight:650;`
 const Tags = styled.ul`display:flex;flex-wrap:wrap;gap:8px;padding:0!important;margin:28px 0 0;list-style:none;li{margin:0!important;padding:7px 11px;border-radius:999px;background:#f2eee8;color:var(--color-ink);font-size:.75rem;font-weight:700;}`
 const SkillsSection = styled(Section)`border-top:1px solid var(--color-line);`
-const SkillGrid = styled.div`display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;@media(max-width:1024px){grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:560px){grid-template-columns:1fr}`
+const SkillGrid = styled.div`display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px;`
 const SkillCard = styled.article`min-width:0;padding:24px;border:1px solid var(--color-line);border-radius:var(--radius-md);background:rgba(255,255,255,.55);h3{margin:0 0 18px;font-size:1rem;}ul{list-style:none;padding:0;margin:0;color:var(--color-muted);font-size:.9rem;}li+li{margin-top:8px;}`
 const EducationSection = styled(Section)`border-top:1px solid var(--color-line);h2{font-size:clamp(2rem,4vw,3.6rem);line-height:1.08;margin:14px 0 42px;letter-spacing:-.045em;}`
 const EducationGrid = styled.div`display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;@media(max-width:650px){grid-template-columns:1fr}div{display:flex;flex-direction:column;padding:24px;border-top:2px solid var(--color-ink);background:rgba(255,255,255,.45);}span{color:var(--color-muted);margin-top:5px;}`
